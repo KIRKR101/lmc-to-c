@@ -1,0 +1,18 @@
+// Sum program for LMC
+// Adds numbers until zero is entered, then displays the total
+
+        INP         // Get first number
+        BRZ OUTPUT  // If zero, skip to output
+        STA TOTAL   // Store initial value in TOTAL
+
+LOOP:   INP         // Get next number
+        BRZ OUTPUT  // If input is zero, jump to OUTPUT
+        ADD TOTAL   // Add current total
+        STA TOTAL   // Store new total
+        BRA LOOP    // Repeat
+
+OUTPUT: LDA TOTAL   // Load total
+        OUT         // Output result
+        HLT         // Halt program
+
+TOTAL:  DAT 0       // Storage for running total
